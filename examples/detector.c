@@ -662,9 +662,11 @@ void print_detections(char *filename,box *boxes, float **probs,float thresh, int
    printf("Writing to the out file...\n");
 
 
-
     int i, j;
     for(i = 0; i < total; ++i){
+
+   int class = max_index(probs[i], classes);
+
         float xmin = (boxes[i].x - boxes[i].w/2.0)*w;
         float xmax = (boxes[i].x + boxes[i].w/2.0)*w;
         float ymin = (boxes[i].y - boxes[i].h/2.0)*h;
@@ -677,6 +679,8 @@ void print_detections(char *filename,box *boxes, float **probs,float thresh, int
 
         for(j = 0; j < classes; ++j){
             if (probs[i][j] > thresh){ 
+
+		   printf("class: %d\n", class);
 		printf("Probs:%f,xmin:%f,ymin:%f,xmax:%f,ymax:%f\n", probs[i][j],xmin, ymin, xmax, ymax);
 		fprintf(fp,"%s,%f,%f,%f,%f,%f\n", filename,probs[i][j],xmin, ymin, xmax, ymax);
 }
