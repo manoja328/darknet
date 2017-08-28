@@ -681,8 +681,8 @@ void print_detections(char *filename,box *boxes, float **probs,float thresh, int
             if (probs[i][j] > thresh){ 
 
 		   printf("class: %d\n", class);
-		printf("Probs:%f,xmin:%f,ymin:%f,xmax:%f,ymax:%f\n", probs[i][j],xmin, ymin, xmax, ymax);
-		fprintf(fp,"%s,%f,%f,%f,%f,%f\n", filename,probs[i][j],xmin, ymin, xmax, ymax);
+		printf("Class:%d,Probs:%f,xmin:%f,ymin:%f,xmax:%f,ymax:%f\n",class,probs[i][j],xmin, ymin, xmax, ymax);
+		fprintf(fp,"%s,%d,%f,%f,%f,%f,%f\n", filename,class,probs[i][j],xmin, ymin, xmax, ymax);
 }
         }
     }
