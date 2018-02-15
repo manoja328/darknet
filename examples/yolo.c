@@ -109,7 +109,7 @@ void validate_yolo(char *cfg, char *weights)
 
     char *base = "results/comp4_det_test_";
     //list *plist = get_paths("data/voc.2007.test");
-    list *plist = get_paths("/home/manoj/darknet/data/Xview/test.txt");
+    list *plist = get_paths("/home/manoj/darknet/data/Xview/valid.txt");
     //list *plist = get_paths("data/voc.2012.test");
     char **paths = (char **)list_to_array(plist);
 
@@ -193,7 +193,7 @@ void validate_yolo_recall(char *cfg, char *weights)
     srand(time(0));
 
     char *base = "results/comp4_det_test_";
-    list *plist = get_paths("/home/manoj/darknet/data/Xview/test.txt");
+    list *plist = get_paths("/home/manoj/darknet/data/Xview/valid.txt");
     char **paths = (char **)list_to_array(plist);
 
     layer l = net->layers[net->n-1];
