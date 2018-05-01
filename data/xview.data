@@ -1,0 +1,6 @@
+classes= 56
+train = /home/manoj/darknet/data/Xview/train.txt
+valid = /home/manoj/darknet/data/Xview/test.txt
+names = data/xviewyolo.names
+backup = backup/
+
